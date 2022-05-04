@@ -1,0 +1,68 @@
+.headSection {
+    text-align: center;
+    width: 80%;
+    margin: auto auto;
+}
+.searchHolder {
+    display: flex;
+    justify-content: space-between;
+}
+.inputt{
+    width: 70%;
+}
+.moviesList {
+    display: flex;
+    flex-wrap: wrap;
+}
+.movieCardHolder {
+    width: 70%;
+    margin: .5rem auto;
+    /* height: 400px; */
+}
+
+.loaderContainer {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-body {
+    text-align: center;
+}
+.card-body > button {
+    margin-top: 1rem;  
+}
+
+/*   for desktop   */
+@media screen and (min-width: 600px){
+    .moviesList {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 1.5rem;
+        width: 80%;
+        margin: auto auto;
+        margin-top: 3rem;
+    }
+    .movieCardHolder {
+        width: 18rem;
+        height: 100%; 
+        cursor: pointer;
+        box-shadow: 1px 2px 3px black;
+        border-radius: 10px;
+        transition: transform .4s ease;
+    }
+    .movieCardHolder:hover {
+        transform: scale(1.04);
+        box-shadow: 2px 2px 7px black;
+    }
+    .card {
+        margin-top: .5rem;
+        height: 100%;
+    }
+    .card > img {
+        height: 20rem;
+        object-fit: cover;
+    }
+
+}

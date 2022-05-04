@@ -1,24 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import './App.css';
+import { HeadSearch } from './components/HeadSearch';
+import { MoviesList } from './components/MoviesList';
 
 function App() {
+
+  const [movies, setMovies] = useState([]);
+  const [response, setResponse] = useState(false);
+
+  const IMDB_API_KEY = "cf45b04";
+  const API_URL = `http://www.omdbapi.com?apikey=${IMDB_API_KEY}`;
+
+  const searchMovies = async(movieName: string) => {
+    axios.get(`${API_URL}&s=${movieName}`)
+      .then(res => {
+        if(res.data.Response === "False") setResponse(false);
+        else {
+          setResponse(true);
+          setMovies(res.data.Search);
+        }
+      })
+      .catch(err => {
+        alert(err);
+      })
+  }
+
+  useEffect(() => {
+    searchMovies("superman");
+  },[]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <HeadSearch search={searchMovies} response={response} setresponse={setResponse}/>
+        <MoviesList movies={movies}/>
     </div>
   );
 }
