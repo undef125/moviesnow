@@ -15,10 +15,11 @@ function App() {
   const searchMovies = async(movieName: string) => {
     axios.get(`${API_URL}&s=${movieName}`)
       .then(res => {
-        if(res.data.Response === "False") setResponse(false);
+        if(res.data.Response === "False") {setResponse(false)}
         else {
           setResponse(true);
           setMovies(res.data.Search);
+          console.log(res);
         }
       })
       .catch(err => {
@@ -28,7 +29,7 @@ function App() {
 
   useEffect(() => {
     searchMovies("superman");
-  });
+  },[]);
 
   return (
     <div className="App">

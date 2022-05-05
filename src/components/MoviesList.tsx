@@ -19,9 +19,9 @@ export const MoviesList = ({ movies }: Props) => {
             <div className="moviesList">
                 {movies?.map((movie) => {
                     return (
-                        <>
+                        <div className="movieCardHolder" key={movie.imdbID}>
                             <MovieCard movie={movie} />
-                        </>
+                        </div>
                     );
                 })}
             </div>

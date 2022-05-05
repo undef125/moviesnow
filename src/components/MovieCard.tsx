@@ -15,7 +15,7 @@ interface Props {
 
 export const MovieCard = ({movie}: Props) => {
 
-    const scrap = () => {
+    const scrapToWatch = () => {
         toast.info("In development🙂", {autoClose: 2000,});
         <ToastContainer />
     //     (async () => {
@@ -31,17 +31,19 @@ export const MovieCard = ({movie}: Props) => {
     }
 
   return (
-    <div className="movieCardHolder">
+    <>
         <Card>
             <Card.Img variant="top" src={movie?.Poster}/>
             <Card.Body>
                 <Card.Title>{movie?.Title}</Card.Title>
-                {/* <Card.Text>
-                    hehe haha huhu
-                </Card.Text> */}
-                <Button variant="primary" onClick={() => scrap()}>Wath Movie</Button>
+                <Card.Text>
+                    {movie?.Type}
+                    <br />  
+                    {movie?.Year}
+                </Card.Text>
+                <Button variant="primary" onClick={() => scrapToWatch()}>Wath Movie</Button>
             </Card.Body>
         </Card>
-    </div>
+    </>
   )
 }
