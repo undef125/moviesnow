@@ -1,11 +1,13 @@
 import { MovieCard } from "./MovieCard";
 import { Spinner } from "react-bootstrap";
+import { Dispatch,SetStateAction } from 'react';
 
 interface Props {
     movies: any[];
+    setName: Dispatch<SetStateAction<string>>;
 }
 
-export const MoviesList = ({ movies }: Props) => {
+export const MoviesList = ({ movies,setName }: Props) => {
     if (movies.length <= 0) {
         return (
             <div className="loaderContainer">
@@ -20,7 +22,7 @@ export const MoviesList = ({ movies }: Props) => {
                 {movies?.map((movie) => {
                     return (
                         <div className="movieCardHolder" key={movie.imdbID}>
-                            <MovieCard movie={movie} />
+                            <MovieCard movie={movie} setName={setName}/>
                         </div>
                     );
                 })}

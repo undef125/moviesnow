@@ -13,6 +13,7 @@
 .moviesList {
     display: flex;
     flex-wrap: wrap;
+    height: fit-content;
 }
 .movieCardHolder {
     width: 70%;
@@ -34,15 +35,18 @@
     margin-top: 1rem;  
 }
 
+.footer {
+    height: 10rem;
+    background-color: cyan;
+    width: 100%;
+}
 /*   for desktop   */
 @media screen and (min-width: 600px){
     .moviesList {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 1.5rem;
+        display: flex;
         width: 80%;
         margin: auto auto;
-        margin-top: 3rem;
+        align-items: center;
     }
     .movieCardHolder {
         width: 18rem;
@@ -54,7 +58,7 @@
     }
     .movieCardHolder:hover {
         transform: scale(1.04);
-        box-shadow: 2px 2px 7px black;
+        box-shadow: 2px 2px 7px rgb(243, 243, 243);
     }
     .card {
         margin-top: .5rem;
@@ -65,4 +69,37 @@
         object-fit: cover;
     }
 
+}
+
+
+
+
+/*        individual        */
+.movieDetailPage {
+    width: 95%;
+    margin: auto auto;
+    min-height: 100vh;
+    color: white;
+}
+.idImageHolder {
+    width: 100%;
+    background-color: inherit;
+}
+.idImageHolder >img {
+    width: 100%;
+    height: 50vh;
+    object-fit: contain;
+}
+
+.textSectionHolder {
+    width: 80%;
+    margin: auto auto;
+    margin-top: .5rem;
+}
+.title {
+    text-align:center;
+    font-size: 2.2rem;
+}
+.det {
+    /* display: flex; */
 }

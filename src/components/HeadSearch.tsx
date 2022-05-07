@@ -15,7 +15,7 @@ export const HeadSearch = (props: Props) => {
     const [input, setInput] = useState("");
     return (
         <div className="headSection">
-            <h3>MovieNow</h3>
+            <h3 style={{color: "#FEFBE7"}}>MovieNow</h3>
             <div className="searchHolder">
                 <Form.Control type="text" placeholder="Enter movie name" className="inputt" value={input} onChange={(e) => setInput(e.target.value)}/>
                 <Button variant="outline-primary" onClick={() => {
