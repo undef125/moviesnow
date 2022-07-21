@@ -1,1 +1,1 @@
-Simple movies site made with react and omdb api 
+Simple movies site made with react, typescript and omdb api 
